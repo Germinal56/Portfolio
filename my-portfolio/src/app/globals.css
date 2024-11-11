@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define color variables */
+:root {
+  --background: #ffd700; /*#ffd700;*/
+  --foreground: #000000;
+
+  /* Define font variables for consistency across the app */
+  --font-lato: "Lato", sans-serif;
+  --font-lato-bold: "Lato Black", sans-serif;
+  --font-lato-light: "Lato Light", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+}
+
+/* Dark mode color scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body, html {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 640px) { 
+  body, html {
+    overflow: hidden; 
+  }
+}
+
+@font-face {
+  font-family: 'Lato Black';
+  src: url('/fonts/Lato-Black.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato Light';
+  src: url('/fonts/Lato-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Apply the background and foreground colors and set default font */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-lato); /* Use Lato as the default */
+}
+
+/*Navbar*/
+.menu-link {
+  @apply flex items-center justify-end text-lg font-lato whitespace-nowrap;
+  color: var(--foreground); /* Default text color */
+}
+
+.highlight-link {
+  @apply px-1 transition-all ease-in-out;
+  background-color: transparent; /* Default state */
+  color: inherit; /* Matches --foreground */
+}
+
+/* Default light mode hover behavior */
+.menu-link:hover .highlight-link {
+  background-color: var(--foreground); /* Highlight color matches foreground */
+  color: var(--background); /* Text color switches to background for contrast */
+  animation: beeping 1.2s steps(2) infinite;
+}
+
+/* Dark mode specific adjustments */
+@media (prefers-color-scheme: dark) {
+  .menu-link {
+    color: var(--foreground); /* Text in white for dark mode */
+  }
+
+  .highlight-link {
+    color: var(--foreground); /* Default state in dark mode */
+    background-color: transparent;
+  }
+
+  .menu-link:hover .highlight-link {
+    background-color: var(--foreground); /* Highlight uses white (foreground) */
+    color: var(--background); /* Text color switches to dark background */
+  }
+}
+
+@keyframes beeping {
+  0%, 50% {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+  51%, 100% {
+    background-color: transparent;
+    color: inherit;
+  }
+}
