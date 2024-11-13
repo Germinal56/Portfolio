@@ -41,7 +41,7 @@ export const projects: Project[] = [
     description:
       "Condensing 10 years of investment experience and financial education, I authored a book to help people start investing independently.\nNo gurus, no banks—just you.\nThis book aims to eliminate doubts and barriers through targeted financial education. \nIt has already helped many.\nSpoiler: Investing is NOT just for the rich; that's just another excuse. Investing is the #1 tool for achieving financial independence.\nEdoardo Di Lella, CEO of Starting Finance, Italy’s top financial education channel, said: \"I saw your content and liked it very much.\"",
     image: "/projects/book.webp",
-    link: "/work/honest-investments",//"https://gianlucafornaciari.com/the-guide",
+    link: "/work/honest-investments"//"https://gianlucafornaciari.com/the-guide",
   },
 ];
 

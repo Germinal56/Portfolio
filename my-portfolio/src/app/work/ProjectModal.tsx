@@ -23,7 +23,10 @@ const ProjectModal = ({ project, closeModal }:  ProjectModalProps) => {
             width={800}
             height={600}
             className="mb-2 sm:mb-0"
-            style={{ objectFit: "cover" }}
+            style={{ 
+              objectFit: "cover",
+              filter: "saturate(1.5)"
+             }}
           />
         </div>
         {/* Text Section */}

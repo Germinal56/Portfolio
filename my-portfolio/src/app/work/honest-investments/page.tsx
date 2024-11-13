@@ -60,9 +60,9 @@ export default function NewsletterForm() {
       {/* Privacy Policy Popup */}
       {showPrivacyPolicy && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 shadow-lg max-w-md w-full">
-            <h2 className="text-xl font-bold font-playfair text-center mb-4">Privacy Policy</h2>
-            <ul className="list-disc pl-5 mb-4">
+          <div className="bg-white dark:bg-gray-800 p-6 shadow-lg max-w-md w-full">
+            <h2 className="text-2xl font-bold font-playfair text-center mb-4">Privacy Policy</h2>
+            <ul className="list-disc pl-5 mb-4 font-latoLight">
               <li>
                 You will respect the rights of the owner of the contents and get access to the resources for personal use only.
               </li>
@@ -101,13 +101,13 @@ export default function NewsletterForm() {
       {/* Form Section */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 shadow-lg max-w-md w-full sm:w-2/3"
+        className="bg-white dark:bg-gray-800 p-6 shadow-lg max-w-md w-full sm:w-2/3"
       >
         <h1 className="text-2xl font-bold mb-4 font-playfair text-center">Get the Book</h1>
         <p className="mb-4">
           Learn personal finance, protect yourself from rip-offs, and start investing on your own.
         </p>
-        <label className="block mb-2">
+        <label className="block mb-2 text-gray-600 dark:text-gray-300">
           your *real* name
           <input
             type="text"
@@ -115,10 +115,10 @@ export default function NewsletterForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full mt-1 p-2 border rounded"
+            className="w-full mt-1 p-2 border focus:ring-2 focus:ring-black dark:focus:ring-white dark:bg-gray-700 dark:text-white"
           />
         </label>
-        <label className="block mb-2">
+        <label className="block mb-2 text-gray-600 dark:text-gray-300">
           your best e-mail
           <input
             type="email"
@@ -127,10 +127,10 @@ export default function NewsletterForm() {
             onChange={handleChange}
             pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"
             required
-            className="w-full mt-1 p-2 border rounded"
+            className="w-full mt-1 p-2 border focus:ring-2 focus:ring-black dark:focus:ring-white dark:bg-gray-700 dark:text-white"
           />
         </label>
-        <label className="block mb-4 text-sm">
+        <label className="block mb-4 text-sm text-gray-600 dark:text-gray-300">
           <input
             type="checkbox"
             name="agreedToTerms"
