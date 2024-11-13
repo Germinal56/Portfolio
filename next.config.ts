@@ -10,8 +10,7 @@ const nextConfig: NextConfig = withBundleAnalyzer({
 */
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true, // Example configuration
-  output: 'export',
+  reactStrictMode: true,
 };
 
 export default nextConfig;
