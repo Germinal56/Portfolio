@@ -3,6 +3,7 @@ import axios from "axios";
 import { corsMiddleware } from "@/lib/cors";
 
 export async function POST(request: Request) {
+  // CORS check
   const corsResponse = corsMiddleware(request);
   if (corsResponse.status !== 200) return corsResponse;
 
@@ -13,7 +14,7 @@ export async function POST(request: Request) {
       { error: "Name and email are required" },
       {
         status: 400,
-        headers: corsResponse.headers, // Preserve CORS headers in error responses
+        headers: corsResponse.headers, // Include CORS headers in error responses
       }
     );
   }
@@ -40,17 +41,17 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       { message: "User added successfully!" },
-      { status: 200, headers: corsResponse.headers } // Preserve CORS headers
+      { status: 200, headers: corsResponse.headers } // Include CORS headers
     );
   } catch (error) {
     console.error("Brevo API error:", error);
     return NextResponse.json(
       { error: "Failed to subscribe" },
-      { status: 500, headers: corsResponse.headers } // Preserve CORS headers
+      { status: 500, headers: corsResponse.headers } // Include CORS headers
     );
   }
 }
 
 export function OPTIONS(request: Request) {
-  return corsMiddleware(request);
+  return corsMiddleware(request); // Preflight request for CORS
 }

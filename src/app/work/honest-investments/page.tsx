@@ -54,108 +54,111 @@ export default function NewsletterForm() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col sm:flex-row items-center justify-center p-4 mt-12 sm:mt-0">
-      {/* Privacy Policy Popup */}
-      {showPrivacyPolicy && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 p-6 shadow-lg max-w-md w-full">
-            <h2 className="text-2xl font-bold font-playfair text-center mb-4">Privacy Policy</h2>
-            <ul className="list-disc pl-5 mb-4 font-latoLight">
-              <li>
-                You will respect the rights of the owner of the contents and get access to the resources for personal use only.
-              </li>
-              <li>
-                You may receive emails from time to time. Emails will be useful and pleasant by design so hopefully you even like them.
-              </li>
-              <li>You will be subscribed to the newsletter until you unsubscribe.</li>
-              <li>
-                Your personal data (name, e-mail) will NOT be shared with third parties. You can ask to delete your data at any moment, just by sending your request to mail@gianlucafornaciari.com or clicking unsubscribe at the bottom of the emails you receive.
-              </li>
-            </ul>
-            <div className="flex justify-center">
-              <button
-                onClick={() => setShowPrivacyPolicy(false)}
-                className="bg-red-800 text-white py-2 px-4 font-latoBold hover:bg-red-900 transition"
-              >
-                Close
-              </button>
+    <>
+      <div className="min-h-screen flex flex-col sm:flex-row items-center justify-center p-4 mt-12 sm:mt-0">
+        {/* Privacy Policy Popup */}
+        {showPrivacyPolicy && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white dark:bg-gray-800 p-6 shadow-lg max-w-md w-full">
+              <h2 className="text-2xl font-bold font-playfair text-center mb-4">Privacy Policy</h2>
+              <ul className="list-disc pl-5 mb-4 font-latoLight">
+                <li>
+                  You will respect the rights of the owner of the contents and get access to the resources for personal use only.
+                </li>
+                <li>
+                  You may receive emails from time to time. Emails will be useful and pleasant by design so hopefully you even like them.
+                </li>
+                <li>You will be subscribed to the newsletter until you unsubscribe.</li>
+                <li>
+                  Your personal data (name, e-mail) will NOT be shared with third parties. You can ask to delete your data at any moment, just by sending your request to mail@gianlucafornaciari.com or clicking unsubscribe at the bottom of the emails you receive.
+                </li>
+              </ul>
+              <div className="flex justify-center">
+                <button
+                  onClick={() => setShowPrivacyPolicy(false)}
+                  className="bg-red-800 text-white py-2 px-4 font-latoBold hover:bg-red-900 transition"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-
-      {/* Image Section */}
-      <div className="sm:w-1/3 w-2/3 mb-4 sm:mb-0">
-        <Image
-          src="/honest-investments-cover.webp"
-          alt="Honest Investments Cover"
-          width={400}
-          height={400}
-          className="w-full h-auto object-cover"
-          priority
-        />
-      </div>
-
-      {/* Form Section */}
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white dark:bg-gray-800 p-6 shadow-lg max-w-md w-full sm:w-2/3"
-      >
-        <h1 className="text-2xl font-bold mb-4 font-playfair text-center">Get the Book</h1>
-        <p className="mb-4">
-          Learn personal finance, protect yourself from rip-offs, and start investing on your own.
-        </p>
-        <label className="block mb-2 text-gray-600 dark:text-gray-300">
-          your *real* name
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full mt-1 p-2 border focus:ring-2 focus:ring-black dark:focus:ring-white dark:bg-gray-700 dark:text-white"
-          />
-        </label>
-        <label className="block mb-2 text-gray-600 dark:text-gray-300">
-          your best e-mail
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"
-            required
-            className="w-full mt-1 p-2 border focus:ring-2 focus:ring-black dark:focus:ring-white dark:bg-gray-700 dark:text-white"
-          />
-        </label>
-        <label className="block mb-4 text-sm text-gray-600 dark:text-gray-300">
-          <input
-            type="checkbox"
-            name="agreedToTerms"
-            checked={formData.agreedToTerms}
-            onChange={handleChange}
-            required
-            className="mr-2"
-          />
-          I agree to subscribe to the newsletter to receive the ebook.{" "}
-          <span
-            onClick={() => setShowPrivacyPolicy(true)}
-            className="underline cursor-pointer"
-          >
-            Read the Privacy Policy
-          </span>.
-        </label>
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className="w-full bg-black hover:bg-gray-800 dark:hover:bg-gray-600 text-white py-2 font-latoBold transition"
-        >
-          {status === "loading" ? "Submitting..." : "Get the Book"}
-        </button>
-        {message && (
-          <p className={`mt-4 text-center font-latoBold whitespace-pre-line ${status === 'error' ? 'text-red-500' : 'text-green-500'}`}>{message}</p>
         )}
-      </form>
-    </div>
+
+        {/* Image Section */}
+        <div className="sm:w-1/3 w-2/3 mb-4 sm:mb-0">
+          <Image
+            src="/honest-investments-cover.webp"
+            alt="Honest Investments Cover"
+            width={400}
+            height={400}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </div>
+
+        {/* Form Section */}
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white dark:bg-gray-800 p-6 shadow-lg max-w-md w-full sm:w-2/3"
+        >
+          <h1 className="text-2xl font-bold mb-4 font-playfair text-center">Get the Book</h1>
+          <p className="mb-4">
+            Learn personal finance, protect yourself from rip-offs, and start investing on your own.
+          </p>
+          <label className="block mb-2 text-gray-600 dark:text-gray-300">
+            your *real* name
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 border focus:ring-2 focus:ring-black dark:focus:ring-white dark:bg-gray-700 dark:text-white"
+            />
+          </label>
+          <label className="block mb-2 text-gray-600 dark:text-gray-300">
+            your best e-mail
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"
+              required
+              className="w-full mt-1 p-2 border focus:ring-2 focus:ring-black dark:focus:ring-white dark:bg-gray-700 dark:text-white"
+            />
+          </label>
+          <label className="block mb-4 text-sm text-gray-600 dark:text-gray-300">
+            <input
+              type="checkbox"
+              name="agreedToTerms"
+              checked={formData.agreedToTerms}
+              onChange={handleChange}
+              required
+              className="mr-2"
+            />
+            I agree to subscribe to the newsletter to receive the ebook.{" "}
+            <span
+              onClick={() => setShowPrivacyPolicy(true)}
+              className="underline cursor-pointer"
+            >
+              Read the Privacy Policy
+            </span>.
+          </label>
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="w-full bg-black hover:bg-gray-800 dark:hover:bg-gray-600 text-white py-2 font-latoBold transition"
+          >
+            {status === "loading" ? "Submitting..." : "Get the Book"}
+          </button>
+          {message && (
+            <p className={`mt-4 text-center font-latoBold whitespace-pre-line ${status === 'error' ? 'text-red-500' : 'text-green-500'}`}>{message}</p>
+          )}
+        </form>
+      </div>
+      <div className="h-[10vh] sm:hidden block"></div>
+    </>
   );
 }

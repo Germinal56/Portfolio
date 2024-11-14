@@ -91,7 +91,7 @@ export default function Home() {
   }, []);  
 
   return (
-    <main className="background flex items-center h-screen">
+    <main className="background flex items-center">
       <div className="content w-full flex flex-col text-left px-8 sm:px-32 lg:px-64">
         <h1 className="font-latoLight text-2xl sm:text-4xl">you have found</h1>
         <h1 className="font-playfair text-5xl sm:text-7xl mt-2">
