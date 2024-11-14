@@ -50,8 +50,6 @@ export default function NewsletterForm() {
     } catch {
       setStatus("error");
       setMessage("Failed to subscribe. Please try again later.");
-    } finally {
-      setStatus("idle");
     }
   };
 
@@ -155,7 +153,7 @@ export default function NewsletterForm() {
           {status === "loading" ? "Submitting..." : "Get the Book"}
         </button>
         {message && (
-          <p className={`mt-4 text-center font-latoBold whitespace-pre-line ${status === 'error' ? 'text-red-700' : 'text-green-700'}`}>{message}</p>
+          <p className={`mt-4 text-center font-latoBold whitespace-pre-line ${status === 'error' ? 'text-red-500' : 'text-green-500'}`}>{message}</p>
         )}
       </form>
     </div>

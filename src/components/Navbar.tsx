@@ -15,6 +15,12 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const handleLinkClick = () => {
+    if (window.innerWidth < 640) {
+      setIsOpen(false);
+    }
+  };
+
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -63,17 +69,17 @@ const Navbar: React.FC = () => {
       >
         <ul className="space-y-2 text-right">
           <li>
-            <Link href="/work" className="menu-link">
+            <Link href="/work" className="menu-link" onClick={handleLinkClick}>
               <span className="highlight-link">see</span> my work
             </Link>
           </li>
          {/*} <li>
-            <Link href="/blog" className="menu-link">
+            <Link href="/blog" className="menu-link" onClick={handleLinkClick}>
               <span className="highlight-link">read</span> my stuff
             </Link>
           </li>*/}
           <li>
-            <Link href="/contact" className="menu-link">
+            <Link href="/contact" className="menu-link" onClick={handleLinkClick}>
               <span className="highlight-link">contact</span> me
             </Link>
           </li>

@@ -31,7 +31,7 @@ const Arrow: React.FC<ArrowProps> = ({ callButtonRef, screenWidth, startRef }) =
 
         // Start at 20vh from bottom and 20vw from left
         startX = window.innerWidth * 0.20;
-        startY = window.innerHeight * 0.80;
+        startY = window.innerHeight * 0.86;
 
         cp1X = startX;
         cp1Y = startY - 100;

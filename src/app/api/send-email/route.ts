@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { corsMiddleware } from "@/lib/cors";
 
 export async function POST(request: Request) {
+  const corsResponse = corsMiddleware(request);
+  if (corsResponse.status !== 200) return corsResponse;
+
   const { name, email, message } = await request.json();
 
   if (!name || !email || !message) {
@@ -39,4 +43,8 @@ export async function POST(request: Request) {
     console.error("Error sending email:", error);
     return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
+}
+
+export async function OPTIONS() {
+  return corsMiddleware(new Request(""));
 }

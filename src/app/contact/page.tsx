@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
     setStatus("loading");
   
     try {
-      await fetch('/api/send-email', {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
@@ -33,17 +33,33 @@ const Contact: React.FC = () => {
         },
       });
   
-      setStatus("success");
-      setPopupMessage("Message sent successfully!");
-      setFormData({ email: "", name: "", surname: "", message: "" });
-    } catch {
+      if (response.ok) {
+        setStatus("success");
+        setPopupMessage("Message sent successfully!");
+        setFormData({ email: "", name: "", surname: "", message: "" });
+      } else {
+        setStatus("error");
+  
+        let errorMessage = "Failed to send. Please try again.";
+        const contentType = response.headers.get("Content-Type");
+  
+        // Read the response body based on its Content-Type
+        const errorResponse = contentType && contentType.includes("application/json")
+          ? await response.json()
+          : await response.text();
+  
+        errorMessage = typeof errorResponse === "string" ? errorResponse : errorResponse.error || errorMessage;
+  
+        setPopupMessage(errorMessage);
+      }
+    } catch (error) {
+      console.error("Unexpected error:", error);
       setStatus("error");
-      setPopupMessage("Failed to send. Please try again.");
+      setPopupMessage("An unexpected error occurred. Please try again later.");
     } finally {
-      setStatus("idle");
       setTimeout(() => setPopupMessage(null), 3000);
     }
-  };
+  };  
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
