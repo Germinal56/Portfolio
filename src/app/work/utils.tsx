@@ -47,12 +47,12 @@ export const projects: Project[] = [
 
  // Define positions and sizes for each project using percentages
 export const projectStylesMobile: ProjectStyle[] = [
-  { width: 45, height: 30, top: 9, left: 0 },
-  { width: 45, height: 20, top: 1, left: 47 },
-  { width: 100, height: 28, top: 40, left: 0 },
-  { width: 51, height: 17, top: 22, left: 47 },
-  { width: 48, height: 26, top: 69, left: 47 },
-  { width: 40, height: 20, top: 69, left: 5 },
+  { width: 45, height: 28, top: 9, left: 0 },
+  { width: 45, height: 19, top: 1, left: 47 },
+  { width: 100, height: 26, top: 38, left: 0 },
+  { width: 51, height: 16, top: 21, left: 47 },
+  { width: 48, height: 28, top: 65, left: 47 },
+  { width: 40, height: 24, top: 65, left: 5 },
 ];
 
 export const projectStylesDesktop: ProjectStyle[] = [

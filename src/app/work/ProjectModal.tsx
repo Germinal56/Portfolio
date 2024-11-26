@@ -12,7 +12,7 @@ const ProjectModal = ({ project, closeModal }:  ProjectModalProps) => {
         
         {/* X Button */}
         <button
-          className="absolute top-2 right-2 text-3xl z-[70] text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
+          className="fixed sm:absolute top-[calc(10vh+0.5rem)] sm:top-2 right-3 text-3xl z-[70] text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
           onClick={() => closeModal()}
         >
           &#10005;

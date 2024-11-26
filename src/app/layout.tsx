@@ -1,7 +1,9 @@
+import React, { ReactNode } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+//import { TrackerProvider } from "../components/TrackerProvider";
 
 export const metadata: Metadata = {
   title: "Gianluca Fornaciari",
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <html lang="en">
@@ -22,9 +24,11 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className="antialiased font-lato">
-        <Navbar />
-        {children}
-        <Footer />
+        {/*<TrackerProvider>*/}
+          <Navbar />
+          {children}
+          <Footer />
+        {/*</TrackerProvider>*/}
       </body>
     </html>
   );

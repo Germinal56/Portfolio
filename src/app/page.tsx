@@ -6,12 +6,12 @@ import Arrow from "./Arrow";
 
 const messages = [
   "builds web apps.",
-  "starts and finishes projects.",
   "makes cost-efficient decisions.",
+  "cares like an owner.",
   "communicates well.",
   "leads teams with an open mind.",
   "can migrate projects in cloud.",
-  "cares like an owner.",
+  "starts and finishes projects.",
   "never stops."
 ];
 
@@ -60,7 +60,7 @@ export default function Home() {
   // Wiggle effect (stops when hovered)
   useEffect(() => {
     let wiggleTimeout: NodeJS.Timeout;
-
+  
     const startWiggle = () => {
       if (!isHovered) {
         setWiggle(true);
@@ -68,18 +68,20 @@ export default function Home() {
       }
       scheduleNextWiggle();
     };
-
+  
     const scheduleNextWiggle = () => {
       const randomDelay = Math.random() * (5000 - 600) + 600;
-      wiggleTimeout = setTimeout(startWiggle, randomDelay);
+      wiggleTimeout = setTimeout(() => {
+        if (!isHovered) startWiggle();
+      }, randomDelay);
     };
-
+  
     scheduleNextWiggle();
-
+  
     return () => {
       clearTimeout(wiggleTimeout);
     };
-  }, [isHovered]);
+  }, [isHovered]);  
 
   // Cursor blinking effect
   useEffect(() => {

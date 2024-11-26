@@ -27,7 +27,7 @@ export default function NewsletterForm() {
     e.preventDefault();
 
     if (!formData.agreedToTerms) {
-      setMessage("You must agree to subscribe to the newsletter to receive the ebook.");
+      setMessage("You must subscribe to the newsletter to receive the ebook.");
       return;
     }
 
@@ -42,20 +42,20 @@ export default function NewsletterForm() {
     
       if (response.status === 200) {
         setStatus("success");
-        setMessage("Thank you! \nCheck your email for the ebook link. \n(It will be sent in max 24h)");
+        setMessage("The book is on its way! \nCheck your inbox in the next 24h.");
         setFormData({ name: "", email: "", agreedToTerms: false });
       } else {
         throw new Error("Subscription failed");
       }
     } catch {
       setStatus("error");
-      setMessage("Failed to subscribe. Please try again later.");
+      setMessage("Failed to subscribe. \nPlease try again later.");
     }
   };
 
   return (
     <>
-      <div className="min-h-screen flex flex-col sm:flex-row items-center justify-center p-4 mt-12 sm:mt-0">
+      <div className="min-h-screen flex flex-col sm:flex-row items-center justify-center sm:p-4 mt-12 sm:mt-0">
         {/* Privacy Policy Popup */}
         {showPrivacyPolicy && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -86,7 +86,7 @@ export default function NewsletterForm() {
         )}
 
         {/* Image Section */}
-        <div className="sm:w-1/3 w-2/3 mb-4 sm:mb-0">
+        <div className="sm:w-1/3 w-2/3 my-6 sm:my-0">
           <Image
             src="/honest-investments-cover.webp"
             alt="Honest Investments Cover"
@@ -102,9 +102,9 @@ export default function NewsletterForm() {
           onSubmit={handleSubmit}
           className="bg-white dark:bg-gray-800 p-6 shadow-lg max-w-md w-full sm:w-2/3"
         >
-          <h1 className="text-2xl font-bold mb-4 font-playfair text-center">Get the Book</h1>
+          <h1 className="text-2xl font-bold mb-4 font-playfair text-center">Get your <u>FREE</u> copy</h1>
           <p className="mb-4">
-            Learn personal finance, protect yourself from rip-offs, and start investing on your own.
+            Learn personal finance, protect yourself from rip-offs, and start investing on your own today.
           </p>
           <label className="block mb-2 text-gray-600 dark:text-gray-300">
             your *real* name
@@ -118,7 +118,7 @@ export default function NewsletterForm() {
             />
           </label>
           <label className="block mb-2 text-gray-600 dark:text-gray-300">
-            your best e-mail
+            your best e-mail <span className="text-xs font-bold text-red-800">(to receive it in the next 24h)</span>
             <input
               type="email"
               name="email"

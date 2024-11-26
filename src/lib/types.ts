@@ -48,3 +48,36 @@ export interface BlogPost {
     categories: string[];
     readCount: number;
 }
+
+// Interaction interface
+
+export interface Interaction {
+    eventType: string;
+    timestamp: Date;
+    duration?: number;
+    additionalData?: Record<string, any>;
+}
+
+export interface Session {
+    sessionId: string;
+    startTime: Date;
+    endTime: Date | null;
+    interactions: Interaction[];
+    pagesVisited: string[];
+    ABLabel: string;
+    deviceType?: string;
+    browser?: string;
+    operatingSystem?: string;
+    city?: string;
+    region?: string;
+    country?: string;
+    referrer?: string;
+    scrollDepth?: number;
+    timeOnPage?: number;
+    networkInfo?: { connectionType: string; downloadSpeed: number };
+}
+
+export interface User extends Document {
+    anonId: string;
+    sessions: Session[];
+}

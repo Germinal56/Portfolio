@@ -63,10 +63,28 @@ body {
   font-family: var(--font-lato); /* Use Lato as the default */
 }
 
+/*Footer
+footer {
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+}*/
+footer {
+  position: absolute;
+  bottom: 0.25rem;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  footer {
+    position: relative;
+    margin-top: -3rem;
+    padding-bottom: 3rem; 
+  }
+}
+
 /*Navbar*/
 .menu-link {
   @apply flex items-center justify-end text-lg font-lato whitespace-nowrap;
-  color: var(--foreground); /* Default text color */
+  color: var(--foreground); 
 }
 
 .highlight-link {

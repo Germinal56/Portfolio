@@ -26,12 +26,12 @@ const Arrow: React.FC<ArrowProps> = ({ callButtonRef, screenWidth, startRef }) =
         arrowEndX = buttonRect.left - 30;
 
         // Adjust arrowEndX to finish slightly before the arrowhead (20px to the right)
-        arrowEndX += 20;
+        arrowEndX += 10;
         arrowEndY = buttonRect.top + buttonRect.height / 2;
 
-        // Start at 20vh from bottom and 20vw from left
-        startX = window.innerWidth * 0.20;
-        startY = window.innerHeight * 0.86;
+        // Start at 10vh from bottom and 15vw from left
+        startX = window.innerWidth * 0.15;
+        startY = window.innerHeight * 0.90;
 
         cp1X = startX;
         cp1Y = startY - 100;
@@ -39,7 +39,7 @@ const Arrow: React.FC<ArrowProps> = ({ callButtonRef, screenWidth, startRef }) =
         cp2Y = arrowEndY;
 
         // Arrowhead points right
-        arrowHeadPath = 'M0,0 L-15,-10 L-15,10 Z';
+        arrowHeadPath = 'M0,0 L-17,-12 L-17,12 Z';
         arrowHeadAngle = Math.atan2(arrowEndY - cp2Y, arrowEndX - cp2X) * (180 / Math.PI);
       } else {
         // Large screen case
