@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export"
+    "export": "next export",
+    "test":"jest",
+    "text:watch":"jest --watchAll"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.6.0",

@@ -55,7 +55,6 @@ export interface Interaction {
     eventType: string;
     timestamp: Date;
     duration?: number;
-    additionalData?: Record<string, any>;
 }
 
 export interface Session {
