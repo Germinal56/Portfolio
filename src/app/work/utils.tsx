@@ -1,12 +1,19 @@
 import { Project, ProjectStyle } from '@/lib/types';
 
 export const projects: Project[] = [
-  {
+  /*{
     title: "Project Solomon",
     description:
       "Project Solomon is an ambitious B2B service inspired by GPT-Engineer, designed to create modular codebases using three specialized AI models. \nIts goal is to minimize code review and integration testing efforts, to empower small teams and tech solopreneurs to ship new features faster. \nCurrently in development.",
     image: "/projects/solomone.webp",
     link: "", //"https://github.com/Germinal56/project-solomon" add after some commits
+  },*/
+  {
+    title: "Market Game",
+    description:
+      "Browser videogame that simulates market trends in a randomized pattern. It can be played with one single button from desktop and mobile. \nPlaying it more than four times (roughly two minutes) teaches you important concepts of investments and improves your psychology intuitively without missing real deals.\nIt is tough to beat the market, 94.6% of the professionals cannot do it.\nHINT: Try different strategies and find what works consistently: buy low, sell high; frequent trading; one single long position, etc...\n",
+    image: "/projects/marketgame.webp",
+    link: "https://germinal56.github.io/beat_market_game/",
   },
   {
     title: "BJJ Prishtina",
